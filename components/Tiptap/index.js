@@ -3,7 +3,6 @@ import StarterKit from '@tiptap/starter-kit'
 import styles from './Tiptap.module.css'
 import { useEffect, useState, useCallback } from 'react'
 import debounce from 'lodash.debounce'
-import Loader from '../Loader/Loader'
 
 export default function Tiptap(props) {
 
@@ -37,7 +36,6 @@ export default function Tiptap(props) {
 
   const callback = useCallback(debounce(async (editor,updated) => {
     if(updated){
-      console.log(editor.getJSON())
       props.callback(editor.getJSON())
     }
   },3000), [])
@@ -52,8 +50,8 @@ export default function Tiptap(props) {
 
   useEffect(() => {
     if (props.content) {
-      editor.commands.clearContent()
-      editor.commands.insertContent(props.content)
+      editor?.commands?.clearContent()
+      editor?.commands?.insertContent(props.content)
       setUpdated(true)
     }
   }, [props.content])
@@ -88,7 +86,12 @@ export default function Tiptap(props) {
           </button>
         </div>
       </BubbleMenu>}
-      <div style={{opacity: props.saving? '1' : '0'}}><Loader/></div>
+      <div className="translate-x-4">
+        {props.saving === '' && <div className='text-sm text-blue-500 font-handwriting opacity-0'>loading</div>}
+        {props.saving === 'saving' && <div className='text-sm text-blue-500 font-handwriting animate-pulse'>saving...</div>}
+        {props.saving === 'saved' && <div className='text-sm text-green-500 font-handwriting'>saved</div>}
+        {props.saving === 'error' && <div className='text-sm text-red-500 font-handwriting'>error: not saved</div>}
+      </div>
       <EditorContent editor={editor} />
     </>
   )
