@@ -52,7 +52,7 @@ function CharacterList(props) {
             </div>
             <div>
                 <div className='mb-10'>
-                    <h2 className='font-fancy text-6xl'>NPC's</h2>
+                    <h2 className='font-fancy text-6xl'>NPCs</h2>
                 </div>
                 {characters.loaded ? characters.list.length > 0 ?
                     characters.list.filter(ch => ch.type === "Friendly NPC" || ch.type === "Enemy NPC")
