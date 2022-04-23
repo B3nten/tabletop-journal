@@ -49,7 +49,7 @@ function DocumentList() {
                     : <div className='font-handwriting opacity-80 pl-1'>no lore</div>
                     : <Loader />
                 }
-                {lore.loaded && <button onClick={() => setNewDocumentModalOpen(true)} className='btn-underline mt-10'>Add lore</button>}
+                {lore.loaded && <button onClick={() => setNewDocumentModalOpen(true)} className='btn-underline mt-10'>Add Lore</button>}
             </div>
         </div>
     </>)

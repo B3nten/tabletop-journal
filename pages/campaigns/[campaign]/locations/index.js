@@ -53,7 +53,7 @@ function DocumentList() {
                     : <div className='font-handwriting opacity-80 pl-1'>no locations</div>
                     : <Loader />
                 }
-                {locations.loaded && <button onClick={() => setNewDocumentModalOpen(true)} className='btn-underline mt-10'>Add locations</button>}
+                {locations.loaded && <button onClick={() => setNewDocumentModalOpen(true)} className='btn-underline mt-10'>Add Location</button>}
             </div>
         </div>
     </>)

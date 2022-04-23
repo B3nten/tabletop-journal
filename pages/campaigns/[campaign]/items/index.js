@@ -49,10 +49,10 @@ function DocumentList() {
                                 magical={d.magical}
                                 >
                             </DocumentListItem>)
-                    : <div className='font-handwriting opacity-80 pl-1'>no documents</div>
+                    : <div className='font-handwriting opacity-80 pl-1'>no items</div>
                     : <Loader />
                 }
-                {doc.loaded && <button onClick={() => setNewDocumentModalOpen(true)} className='btn-underline mt-10'>Add item</button>}
+                {doc.loaded && <button onClick={() => setNewDocumentModalOpen(true)} className='btn-underline mt-10'>Add Item</button>}
             </div>
         </div>
     </>)

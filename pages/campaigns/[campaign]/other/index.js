@@ -46,10 +46,10 @@ function DocumentList() {
                                 key={d.other_id}
                                 id={d.other_id}>
                             </DocumentListItem>)
-                    : <div className='font-handwriting opacity-80 pl-1'>no documents</div>
+                    : <div className='font-handwriting opacity-80 pl-1'>no notes</div>
                     : <Loader />
                 }
-                {doc.loaded && <button onClick={() => setNewDocumentModalOpen(true)} className='btn-underline mt-10'>Add document</button>}
+                {doc.loaded && <button onClick={() => setNewDocumentModalOpen(true)} className='btn-underline mt-10'>Add Note</button>}
             </div>
         </div>
     </>)
