@@ -1,10 +1,14 @@
 .editor{
     font-family: Kalam;
     font-size: 1.25rem;
-    min-height: 450px;
-    background-color: rgba(251, 190, 36, 0.1);
+    min-height: 200px;
     border-radius: 1.5rem;
     padding: 1rem;
+    background-color: rgba(251, 190, 36, 0.15);
+}
+
+.editor:focus{
+    background-color: rgba(251, 190, 36, .15);
 }
 
 h1.heading{

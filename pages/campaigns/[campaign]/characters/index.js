@@ -6,21 +6,18 @@ import Loader from '../../../../components/Loader/Loader'
 import { useCampaignID, useCharacterList } from '../../../../lib/database'
 import { Modal, Title } from '../../../../components/Modal'
 import toast from 'react-hot-toast'
-import {useRouter} from 'next/router'
-import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 export default function CharactersPage() {
     const [newCharacterModalOpen, setNewCharacterModalOpen] = useState(false)
-    const campaign = useCampaignID()
     return (
         <div>
-            {newCharacterModalOpen && <Modal hide={setNewCharacterModalOpen}><CreateCharacterModal /></Modal>}
+            {newCharacterModalOpen && <Modal hide={setNewCharacterModalOpen}><CreateCharacterModal/></Modal>}
             <Navigation title='Characters'>
                 <AddButton onClick={() => setNewCharacterModalOpen(true)} />
             </Navigation>
             <AuthCheck>
                 <CharacterList type='Player' />
-                <Link href={`/campaigns/${campaign}/characters/75`}><button>75</button></Link>
             </AuthCheck>
         </div>
     )
@@ -28,8 +25,7 @@ export default function CharactersPage() {
 
 function CharacterList(props) {
     const [newCharacterModalOpen, setNewCharacterModalOpen] = useState(false)
-
-    const characterList = useCharacterList()
+    const characters = useCharacterList()
 
     return (<>
         {newCharacterModalOpen && <Modal hide={setNewCharacterModalOpen}><CreateCharacterModal /></Modal>}
@@ -38,23 +34,53 @@ function CharacterList(props) {
                 <div className='mb-10'>
                     <h2 className='font-fancy text-6xl'>Party</h2>
                 </div>
-                {/* <img className='w-full h-1 opacity-20' src='/bottom_line.svg' /> */}
-
-                {characterList === null ? <Loader /> : characterList.error ? <div>No characters found.</div> : characterList.map((ch) =>
-                    <CharacterListItem name={ch.name} level={ch.level} race={ch.race} class={ch.class} key={ch.character_id}></CharacterListItem>)
+                {characters.loaded ? characters.list.length > 0 ?
+                    characters.list.filter(ch => ch.type === 'Player')
+                        .map((ch) =>
+                            <CharacterListItem
+                                name={ch.name}
+                                level={ch.level}
+                                race={ch.race}
+                                class={ch.class}
+                                key={ch.character_id}
+                                id={ch.character_id}>
+                            </CharacterListItem>)
+                    : <div className='font-handwriting opacity-80 pl-1'>no characters</div>
+                    : <Loader />
                 }
-                <button onClick={() => setNewCharacterModalOpen(true)} className='btn-underline mt-10'>Add player</button>
+                {characters.loaded && <button onClick={() =>setNewCharacterModalOpen(true)} className='btn-underline mt-10'>Add Character</button>}
+            </div>
+            <div>
+                <div className='mb-10'>
+                    <h2 className='font-fancy text-6xl'>NPC's</h2>
+                </div>
+                {characters.loaded ? characters.list.length > 0 ?
+                    characters.list.filter(ch => ch.type === "Friendly NPC" || ch.type === "Enemy NPC")
+                        .map((ch) =>
+                            <CharacterListItem
+                                name={ch.name}
+                                level={ch.level}
+                                race={ch.race}
+                                class={ch.class}
+                                key={ch.character_id}
+                                id={ch.character_id}>
+                            </CharacterListItem>)
+                    : <div className='font-handwriting opacity-80 pl-1'>no characters</div>
+                    : <Loader />
+                }
             </div>
         </div>
     </>)
 }
 
 function CharacterListItem(props) {
+    const router = useRouter()
+    const campaign = useCampaignID()
     return (
-        <div className='flex flex-col items-start mt-8 space-y-1 cursor-pointer hover:scale-105 hover:translate-x-[5%] transition-all'>
+        <div onClick={() => router.push(`/campaigns/${campaign}/characters/${props.id}`)} className='flex flex-col items-start mt-8 space-y-1 cursor-pointer hover:scale-105 hover:translate-x-[5%] transition-all'>
             <div className='text-3xl font-handwriting'>{props.name}</div>
             {props.level || props.race || props.class ?
-                <div className='flex space-x-1 text-lg'>
+                <div className='flex space-x-1 text-lg font-handwriting'>
                     <div>
                         {props.level && 'Level '}
                         {props.level}
@@ -98,12 +124,12 @@ function CreateCharacterModal(props) {
             <Title title='Add Character'></Title>
             <div className="flex flex-col space-y-4">
                 <div>
-                    <lable for='name' className='font-handwriting text-lg'>Name: </lable>
+                    <lable htmlFor='name' className='font-handwriting text-lg'>Name: </lable>
                     <input name='name' placeholder='Harry Otter' ref={name}></input>
                 </div>
                 <div>
-                    <lable for='type' className='font-handwriting text-lg'>Type: </lable>
-                    <select name='type' placeholder='Harry Otter' ref={type} className="bg-transparent font-handwriting">
+                    <lable htmlFor='type' className='font-handwriting text-lg'>Type: </lable>
+                    <select name='type' selected={props.selection} placeholder='Harry Otter' ref={type} className="bg-transparent font-handwriting">
                         <option value='Player'>Player</option>
                         <option value='Friendly NPC'>Friendly NPC</option>
                         <option value='Enemy NPC'>Enemy NPC</option>

@@ -5,19 +5,21 @@ import { AuthCheck } from "../../components/AuthGuard"
 import { useCampaignList } from "../../lib/database"
 
 
+
 export default function Campaigns() {
     const campaigns = useCampaignList()
-
+    
     return (<>
-            <Navigation title='Campaigns'>
-            </Navigation>
+            <Navigation title='Campaigns' />
             <AuthCheck>
+                {!campaigns.loaded && <Loader centred />}
+                {campaigns.loaded && 
                 <div className='flex flex-col items-center space-y-16'>
-                    {campaigns === null ? <Loader /> : <CampaignList campaigns={campaigns} /> }
+                    <CampaignList campaigns={campaigns.list} />
                     <Link href='/campaigns/create'>
                         <button className='btn-underline hover:scale-105'>Create Campaign</button>
                     </Link>
-                </div>
+                </div>}
             </AuthCheck>
         </>)
 }

@@ -1,26 +1,23 @@
 import { Navigation } from "../../../components/Navigation"
-import { useRouterQuery } from "../../../lib/hooks"
+import { useClientRouter } from "../../../lib/hooks"
 import { useState, useEffect } from "react"
-import {useRouter} from 'next/router'
-import {Modal} from '../../../components/Modal/Modal'
+import { useRouter } from 'next/router'
+import { Modal } from '../../../components/Modal/Modal'
 import supabase from "../../../lib/supabase"
 import toast from "react-hot-toast"
+import { useCampaign } from "../../../lib/database"
 
 export default function CampaignSettigns() {
-    const [campaign, setCampaign] = useState()
 
-    const query = useRouterQuery(getCampaignData)
-    async function getCampaignData() {
-        let { data: data, error } = await supabase.from('campaigns').select('*').eq('campaign_id', query.campaign)
-        error ? toast.error('Could not retrieve campaigns. Please refresh.') : setCampaign(data[0])
-    }
+    const campaign = useCampaign()
+
 
     return (<>
         <Navigation title='Campaign Settings' />
         <div className='flex flex-col items-center mt-20'>
             <DeleteCampaign campaign={campaign} />
         </div>
-        
+
     </>)
 }
 
@@ -30,8 +27,6 @@ function DeleteCampaign(props) {
     const [isValid, setIsValid] = useState(false)
     const [pressed, setPressed] = useState(false)
     const router = useRouter()
-
-    console.log(props)
 
     async function deleteCampaign(e) {
         e.preventDefault()

@@ -1,29 +1,15 @@
 import React, { useEffect, useState, useRef } from "react"
 import { createPortal } from 'react-dom'
-import styles from './Modal.module.css'
 import { useEnsureBrowserPaintsBeforeEffect } from '../../lib/hooks'
 
 export function Modal(props) {
     const [isOpen, setIsOpen] = useState(false)
-    const container = useRef(null)
-    const parchment = useRef(null)
 
     const portal = useRef()
     const [mounted, setMounted] = useState(false)
 
     useEnsureBrowserPaintsBeforeEffect(() => {
-        if (mounted) {
-            const resizeObserver = new ResizeObserver(entries => {
-                for (let entry of entries) {
-                    parchment?.current?.style.height = (window.getComputedStyle(entry.target).height)
-                }
-            })
-            setIsOpen(true)
-            resizeObserver.observe(container.current)
-            return () => {
-                resizeObserver.disconnect()
-            }
-        }
+        if (mounted) setIsOpen(true)
     }, [mounted])
 
     useEffect(() => {
@@ -37,20 +23,22 @@ export function Modal(props) {
     }
 
     return mounted ? createPortal(
-        <div className={`fixed inset-0 flex justify-center items-center transition-all duration-300 backdrop-blur-sm bg-gray/30
-        ${isOpen ? 'opacity-100' : 'opacity-0'}`}>
+        <div className={`fixed inset-0 flex justify-center items-center`}>
 
-            <div className='fixed inset-0' onClick={hide}></div>
-            <div className='relative'>
-                <div ref={parchment} className={styles.parchment}></div>
-                <div ref={container} className={styles.container}>
-
-                    {React.Children.map(props.children, (child) =>
-                        React.cloneElement(child, { hide })
-                    )}
-
-                </div>
+            <div
+                className={`fixed inset-0 transition-all duration-300 backdrop-blur-sm
+            ${isOpen ? 'opacity-100' : 'opacity-0'}`}
+                onClick={hide}>
             </div>
+
+            <div
+                className={`relative bg-orange-300 bg-opacity-10 backdrop-blur-md p-6 rounded-xl shadow-lg transition-all
+            ${isOpen ? 'opacity-100' : 'opacity-0'}`}>
+                {React.Children.map(props.children, (child) =>
+                    React.cloneElement(child, { hide })
+                )}
+            </div>
+
         </div>
         , portal.current) : null
 }

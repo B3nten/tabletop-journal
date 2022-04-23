@@ -2,15 +2,13 @@ import { useUser, logOut } from '../lib/authentication'
 import { AuthCheck } from '../components/AuthGuard'
 import Link from 'next/link'
 import {Navigation} from '../components/Navigation'
-import { useCampaignList} from '../lib/database'
+
 
 export default function Home() {
   const user = useUser()
-  const char = useCampaignList()
-  console.log(char)
   return (
     <>
-      <Navigation title='Campaign Journal' backButtonHidden/>
+      <Navigation title='NotescroLL' backButtonHidden/>
       <AuthCheck>
         <div className="flex flex-col items-center space-y-16">
           <h1 className='text-xl sm:text-2xl md:text-3xl lg:text-4xl font-fancy text-center'>Hello {user?.user_metadata?.user_name || 'there!'}</h1>

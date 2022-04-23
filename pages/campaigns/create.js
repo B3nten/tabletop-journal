@@ -2,13 +2,13 @@ import Navigation from "../../components/Navigation/Navigation"
 import toast from "react-hot-toast"
 import { useState, useEffect } from "react"
 import supabase from '../../lib/supabase'
-import { useRouter } from "next/router"
+import { useClientRouter } from '../../lib/hooks'
 
 export default function CreateCampaign() {
     const [name, updateName] = useState('')
     const [description, updateDescription] = useState('')
     const [isValid, setIsValid] = useState(false)
-    const router = useRouter()
+    const router = useClientRouter()
 
     function checkForm() {
         if ((name != '') && (description != '')) {
