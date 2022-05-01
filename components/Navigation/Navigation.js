@@ -13,11 +13,11 @@ export default function Navigation(props) {
                 </button>
                 <div className='flex space-x-6'>
                     {props.children}
-                    <button><img className='w-6 h-6 xl:w-7 xl:h-7' src='/search.svg' /></button>
+                    <button><img className='w-6 h-6 xl:w-7 xl:h-7' src='/search.svg' alt='' /></button>
                     <Link href='/'>
-                        <button><img className='w-6 h-6 xl:w-7 xl:h-7' src='/home.svg' /></button>
+                        <button><img className='w-6 h-6 xl:w-7 xl:h-7' src='/home.svg' alt='' /></button>
                     </Link>
-                    <AuthSwitch authenticated={<button onClick={() => logOut()}><img className='w-6 h-6 xl:w-7 xl:h-7' src='/logout.svg' /></button>} />
+                    <AuthSwitch authenticated={<button onClick={() => logOut()}><img className='w-6 h-6 xl:w-7 xl:h-7' src='/logout.svg' alt='' /></button>} />
                 </div>
             </nav>
             <div className='relative inset-0 flex font-fancy text-4xl sm:text-5xl md:text-6xl pointer-events-none mt-6 mb-20'>
