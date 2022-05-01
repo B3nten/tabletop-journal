@@ -8,6 +8,7 @@ import { Modal, Title } from '../../../../components/Modal'
 import toast from 'react-hot-toast'
 import { useClientRouter } from '../../../../lib/hooks'
 import supabase from '../../../../lib/supabase'
+import { Metatags } from '../../../../components/Metatags'
 
 
 export default function CharacterPage() {
@@ -16,6 +17,7 @@ export default function CharacterPage() {
 
     return (
         <div>
+            <Metatags title={character.name || 'Character'} />
             <Navigation title={character.loaded ? character.name : ' '} loggedOut='Character' />
             <AuthCheck>
                 {deleteCharacter && character.loaded && <Modal hide={() => setDeleteCharacter(false)}><DeleteCharacter character={character} /></Modal>}

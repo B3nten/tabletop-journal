@@ -7,6 +7,7 @@ import { useCampaignID, useDocumentList } from '../../../../lib/database'
 import { Modal, Title } from '../../../../components/Modal'
 import toast from 'react-hot-toast'
 import { useRouter } from 'next/router'
+import { Metatags } from '../../../../components/Metatags'
 
 
 export default function DreamsPage() {
@@ -14,6 +15,7 @@ export default function DreamsPage() {
 
     return (
         <div>
+            <Metatags title='Dreams' />
             {newDocumentModalOpen && <Modal hide={setNewDocumentModalOpen}><CreateDocumentModal /></Modal>}
             <Navigation title='Dreams'>
                 <AddButton onClick={() => setNewDocumentModalOpen(true)} />

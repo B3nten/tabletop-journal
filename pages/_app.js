@@ -1,6 +1,7 @@
 import Parchment from '../components/Parchment/Parchment'
 import { Toaster } from 'react-hot-toast'
 import { AuthContextProvider } from '../lib/authentication'
+import { Metatags } from '../components/Metatags'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
@@ -13,6 +14,7 @@ function MyApp({ Component, pageProps }) {
           color: 'black',
         },
       }} />
+      <Metatags/>
       <AuthContextProvider>
         <Parchment>
           <Component {...pageProps} />

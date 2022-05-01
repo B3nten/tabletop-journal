@@ -3,6 +3,7 @@ import Loader from '../../components/Loader/Loader'
 import Navigation from '../../components/Navigation/Navigation'
 import { AuthCheck } from "../../components/AuthGuard"
 import { useCampaignList } from "../../lib/database"
+import { Metatags } from "../../components/Metatags"
 
 
 
@@ -10,6 +11,7 @@ export default function Campaigns() {
     const campaigns = useCampaignList()
     
     return (<>
+            <Metatags title='Campaigns'/>
             <Navigation title='Campaigns' />
             <AuthCheck>
                 {!campaigns.loaded && <Loader centred />}

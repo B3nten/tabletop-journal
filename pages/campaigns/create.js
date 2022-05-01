@@ -3,6 +3,7 @@ import toast from "react-hot-toast"
 import { useState, useEffect } from "react"
 import supabase from '../../lib/supabase'
 import { useClientRouter } from '../../lib/hooks'
+import { Metatags } from "../../components/Metatags"
 
 export default function CreateCampaign() {
     const [name, updateName] = useState('')
@@ -11,7 +12,7 @@ export default function CreateCampaign() {
     const router = useClientRouter()
 
     function checkForm() {
-        if ((name != '') && (description != '')) {
+        if (name != '') {
             setIsValid(true)
         } else {
             setIsValid(false)
@@ -34,6 +35,7 @@ export default function CreateCampaign() {
 
     return (
         <>
+            <Metatags title='Create Campaign'/>
             <Navigation title='New Campaign' link='/campaigns' />
             <form className='flex flex-col items-center space-y-10'>
                 <input name='name' placeholder='Campaign Name' className='w-full max-w-md' value={name} onChange={(el) => updateName(el.target.value)} />

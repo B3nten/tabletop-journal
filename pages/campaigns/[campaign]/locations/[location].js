@@ -8,6 +8,7 @@ import { Modal, Title } from '../../../../components/Modal'
 import toast from 'react-hot-toast'
 import { useClientRouter } from '../../../../lib/hooks'
 import supabase from '../../../../lib/supabase'
+import { Metatags } from '../../../../components/Metatags'
 
 
 export default function LocationPage() {
@@ -18,6 +19,7 @@ export default function LocationPage() {
 
     return (
         <div>
+            <Metatags title={document.name || 'Locations'}/>
             <Navigation title={document.loaded ? document.name : ' '} loggedOut='Location' />
             <AuthCheck>
                 {deleteDocument && document.loaded && <Modal hide={() => setDeleteDocument(false)}><DeleteDocument document={document} /></Modal>}

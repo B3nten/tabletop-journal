@@ -7,6 +7,7 @@ import { useCampaignID, useDocumentList } from '../../../../lib/database'
 import { Modal, Title } from '../../../../components/Modal'
 import toast from 'react-hot-toast'
 import { useRouter } from 'next/router'
+import { Metatags } from '../../../../components/Metatags'
 
 
 export default function ItemsPage() {
@@ -14,6 +15,7 @@ export default function ItemsPage() {
 
     return (
         <div>
+            <Metatags title='Items' />
             {newDocumentModalOpen && <Modal hide={setNewDocumentModalOpen}><CreateDocumentModal /></Modal>}
             <Navigation title='Items'>
                 <AddButton onClick={() => setNewDocumentModalOpen(true)} />
@@ -76,7 +78,7 @@ function DocumentListItem(props) {
                                 {props.magical}
                             </div>
                         </div> : null}
-            <img className='w-full h-1 opacity-20' src='/bottom_line.svg' />
+            <img className='w-full h-1 opacity-20' src='/bottom_line.svg' alt=''/>
         </div>
     )
 }

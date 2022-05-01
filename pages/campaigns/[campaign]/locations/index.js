@@ -8,6 +8,7 @@ import { Modal, Title } from '../../../../components/Modal'
 import toast from 'react-hot-toast'
 import { useRouter } from 'next/router'
 import { useSession } from '../../../../lib/authentication'
+import { Metatags } from '../../../../components/Metatags'
 
 
 export default function LocationsPage() {
@@ -15,6 +16,7 @@ export default function LocationsPage() {
 
     return (
         <div>
+            <Metatags title='Locations' />
             {newDocumentModalOpen && <Modal hide={setNewDocumentModalOpen}><CreateDocumentModal /></Modal>}
             <Navigation title='Locations'>
                 <AddButton onClick={() => setNewDocumentModalOpen(true)} />
@@ -77,7 +79,7 @@ function DocumentListItem(props) {
                                 {props.continent}
                             </div>
                         </div> : null}
-            <img className='w-full h-1 opacity-20' src='/bottom_line.svg' />
+            <img className='w-full h-1 opacity-20' src='/bottom_line.svg' alt='' />
         </div>
     )
 }

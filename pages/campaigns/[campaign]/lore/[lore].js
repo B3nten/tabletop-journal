@@ -8,6 +8,7 @@ import { Modal, Title } from '../../../../components/Modal'
 import toast from 'react-hot-toast'
 import { useClientRouter } from '../../../../lib/hooks'
 import supabase from '../../../../lib/supabase'
+import { Metatags } from '../../../../components/Metatags'
 
 
 export default function LorePage() {
@@ -17,6 +18,7 @@ export default function LorePage() {
 
     return (
         <div>
+            <Metatags title={document.title || 'Lore'} />
             <Navigation title={document.loaded ? document.title : ' '} loggedOut='Lore' />
             <AuthCheck>
                 {deleteDocument && document.loaded && <Modal hide={() => setDeleteDocument(false)}><DeleteDocument document={document} /></Modal>}

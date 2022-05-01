@@ -3,11 +3,13 @@ import { AuthCheck } from "../../../components/AuthGuard"
 import { useClientRouter } from "../../../lib/hooks"
 import { useCampaign } from "../../../lib/database"
 import Loader from "../../../components/Loader/Loader"
+import { Metatags } from "../../../components/Metatags"
 
 export default function Campaign() {
     const campaign = useCampaign()
 
     return (<>
+        <Metatags title={campaign.name || 'Campaign'}/>
         <Navigation title={campaign?.name ?? ''} />
         {!campaign.loaded && <Loader centred />}
         {campaign.loaded && campaign.isData &&
@@ -35,7 +37,7 @@ function OptionsListItem(props) {
     return (
         <button onClick={() => router.push(`/campaigns/${router.query.campaign}/${props.link}`)} className='flex flex-col items-start mt-8 space-y-1 hover:scale-[1.04] hover:translate-x-2 transition-all'>
             <div className='text-3xl font-handwriting'>{props.name}</div>
-            <img className='w-full h-1 opacity-20' src='/bottom_line.svg' />
+            <img className='w-full h-1 opacity-20' src='/bottom_line.svg' alt=''/>
         </button>
     )
 }

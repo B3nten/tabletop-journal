@@ -7,11 +7,13 @@ import { useCampaignID, useCharacterList } from '../../../../lib/database'
 import { Modal, Title } from '../../../../components/Modal'
 import toast from 'react-hot-toast'
 import { useRouter } from 'next/router'
+import { Metatags } from '../../../../components/Metatags'
 
 export default function CharactersPage() {
     const [newCharacterModalOpen, setNewCharacterModalOpen] = useState(false)
     return (
         <div>
+            <Metatags title='Characters' />
             {newCharacterModalOpen && <Modal hide={setNewCharacterModalOpen}><CreateCharacterModal/></Modal>}
             <Navigation title='Characters'>
                 <AddButton onClick={() => setNewCharacterModalOpen(true)} />
@@ -92,7 +94,7 @@ function CharacterListItem(props) {
                         {props.class}
                     </div>
                 </div> : null}
-            <img className='w-full h-1 opacity-20' src='/bottom_line.svg' />
+            <img alt='' className='w-full h-1 opacity-20' src='/bottom_line.svg' />
         </div>
     )
 }

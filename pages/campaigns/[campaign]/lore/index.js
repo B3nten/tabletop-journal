@@ -8,6 +8,7 @@ import { Modal, Title } from '../../../../components/Modal'
 import toast from 'react-hot-toast'
 import { useRouter } from 'next/router'
 import { useSession } from '../../../../lib/authentication'
+import { Metatags } from '../../../../components/Metatags'
 
 
 export default function LoresPage() {
@@ -15,6 +16,7 @@ export default function LoresPage() {
 
     return (
         <div>
+            <Metatags title='Lore' />
             {newDocumentModalOpen && <Modal hide={setNewDocumentModalOpen}><CreateDocumentModal /></Modal>}
             <Navigation title='Lore'>
                 <AddButton onClick={() => setNewDocumentModalOpen(true)} />
@@ -61,7 +63,7 @@ function DocumentListItem(props) {
     return (
         <div onClick={() => router.push(`/campaigns/${campaign}/lore/${props.id}`)} className='flex flex-col items-start mt-8 space-y-1 cursor-pointer hover:scale-[1.02] transition-all'>
             <div className='text-3xl font-handwriting'>{props.name}</div>
-            <img className='w-full h-1 opacity-20' src='/bottom_line.svg' />
+            <img className='w-full h-1 opacity-20' src='/bottom_line.svg' alt='' />
         </div>
     )
 }
@@ -90,7 +92,6 @@ function CreateDocumentModal(props) {
 
     return (
         <div>
-            <Title title='Add Lore'></Title>
             <div className="flex flex-col space-y-4">
                 <div>
                     <lable htmlFor='name' className='font-handwriting text-lg'>Name: </lable>

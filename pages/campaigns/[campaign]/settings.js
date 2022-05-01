@@ -6,6 +6,7 @@ import { Modal } from '../../../components/Modal/Modal'
 import supabase from "../../../lib/supabase"
 import toast from "react-hot-toast"
 import { useCampaign } from "../../../lib/database"
+import { Metatags } from "../../../components/Metatags"
 
 export default function CampaignSettigns() {
 
@@ -13,6 +14,7 @@ export default function CampaignSettigns() {
 
 
     return (<>
+        <Metatags title='Campaign Settings' />
         <Navigation title='Campaign Settings' />
         <div className='flex flex-col items-center mt-20'>
             <DeleteCampaign campaign={campaign} />
