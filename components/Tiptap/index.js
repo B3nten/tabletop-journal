@@ -1,1 +1,0 @@
-export { default as AutosaveRichText } from '../Fields/AutosaveRichText'
