@@ -11,7 +11,7 @@ export default function Home() {
       <Navigation title='NotescroLL' backButtonHidden/>
       <AuthCheck>
         <div className="flex flex-col items-center space-y-16">
-          <h1 className='text-xl sm:text-2xl md:text-3xl lg:text-4xl font-fancy text-center'>Hello {user?.user_metadata?.user_name || 'there!'}</h1>
+          <h1 className='text-xl sm:text-2xl md:text-3xl lg:text-4xl font-fancy text-center'>Hello {user?.user_metadata?.user_name || 'user!'}</h1>
           <div className="flex flex-col space-y-4">
             <Link href={'/campaigns'}>
               <button className='btn-primary'>View Campaigns</button>
