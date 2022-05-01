@@ -1,0 +1,15 @@
+/campaigns/:campaign/characters/:character /campaigns/[campaign]/characters/[character].html 200
+/campaigns/:campaign/locations/:character /campaigns/[campaign]/locations/[location].html 200
+/campaigns/:campaign/lore/:character /campaigns/[campaign]/lore/[lore].html 200
+/campaigns/:campaign/items/:character /campaigns/[campaign]/items/[item].html 200
+/campaigns/:campaign/dreams/:character /campaigns/[campaign]/dreams/[dream].html 200
+/campaigns/:campaign/other/:character /campaigns/[campaign]/other/[other].html 200
+
+/campaigns/:campaign/characters /campaigns/[campaign]/characters 200
+/campaigns/:campaign/locations /campaigns/[campaign]/locations 200
+/campaigns/:campaign/lore /campaigns/[campaign]/lore 200
+/campaigns/:campaign/items /campaigns/[campaign]/items 200
+/campaigns/:campaign/dreams /campaigns/[campaign]/dreams 200
+/campaigns/:campaign/other /campaigns/[campaign]/other 200
+
+/campaigns/:campaign /campaigns/[campaign] 200

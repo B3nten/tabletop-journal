@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 body{
-    @apply text-slate-800
+    @apply text-slate-800 overflow-x-hidden
 }
 
 input{
