@@ -17,7 +17,7 @@ export default function Parchment(props) {
 
 
     return (
-        <div className='relative w-full'>
+        <div className='relative w-screen mx-auto'>
             <div className={styles.background}></div>
             <div ref={parchment} className={styles.parchment}></div>
             <div ref={container} className={styles.container}>
