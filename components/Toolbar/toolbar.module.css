@@ -1,0 +1,49 @@
+.wrapper{
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  bottom: 20px;
+  padding: 0px 5px 0px 5px;
+}
+
+.toolbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 0.5rem;
+  margin: auto;
+
+  background-color: #fdbb7436;
+  backdrop-filter: blur(6px);
+  border-radius: 2rem;
+}
+.toolbar > button:not(:last-child) {
+  margin-right: 2rem;
+}
+
+
+.button {
+  padding: 0.5rem;
+  transition: all;
+  transition-duration: 300ms;
+  border-radius: 100%;
+  @apply hover:bg-orange-400 hover:bg-opacity-20;
+}
+
+.button > img {
+  width: 2rem;
+  height: 2rem;
+}
+
+@media only screen and (max-width:500px) {
+  .toolbar > button:not(:last-child) {
+    margin-right: .6rem;
+  }  
+  .wrapper{
+    bottom:10px;
+  }
+}

@@ -15,7 +15,6 @@ export default function Parchment(props) {
         return ()=> resizeObserver.disconnect()
     }, [])
 
-
     return (
         <div className='relative w-screen mx-auto'>
             <div className={styles.background}></div>

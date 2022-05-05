@@ -3,6 +3,7 @@ import { Toaster } from 'react-hot-toast'
 import { AuthContextProvider } from '../lib/authentication'
 import { Metatags } from '../components/Metatags'
 import '../styles/globals.css'
+import { Toolbar } from '../components/Toolbar'
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -19,6 +20,7 @@ function MyApp({ Component, pageProps }) {
         <Parchment>
           <Component {...pageProps} />
         </Parchment>
+        <Toolbar />
       </AuthContextProvider>
     </>
   )
