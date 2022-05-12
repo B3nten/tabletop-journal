@@ -4,40 +4,61 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    @apply text-slate-800 overflow-x-hidden
+html{
+    scrollbar-gutter: stable;
+    overflow: overlay
 }
 
-input{
-    @apply focus:outline-none bg-amber-400 bg-opacity-5 rounded-2xl border-b-8 border-black font-handwriting px-2 pt-2;
+body {
+    @apply text-slate-800 overflow-x-hidden;
+    overflow: overlay
+}
+
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(117, 101, 82);
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+}
+
+input {
+    @apply focus:outline-none bg-amber-400 bg-opacity-5 rounded-2xl border-b-2 border-black font-handwriting px-2 pt-0;
     border-image: url(/bottom_line.svg) 0 0 100% 0 stretch
 }
 
-textarea{
+textarea {
     @apply focus:outline-none bg-amber-400 bg-opacity-5 rounded-2xl border-b-8 border-black font-handwriting px-2 pt-2 h-32;
     border-image: url(/bottom_line.svg) 0 0 100% 0 stretch
 }
 
-.btn-primary{
+.btn-primary {
     @apply inline-block px-4 border-black font-fancy text-black text-2xl transition-all hover:drop-shadow-lg;
     border-style: solid;
     border-width: 10px 10px 10px 10px;
     border-image: url(/border.svg) 10 10 10 10 stretch stretch;
 }
 
-.btn-underline{
+.btn-underline {
     @apply leading-none border-b-4 border-black font-handwriting px-1 hover:drop-shadow-md transition-all;
     border-image: url(/bottom_line.svg) 0 0 100% 0 stretch
 }
 
-.btn-small{
+.btn-small {
     @apply inline-block px-3 py-1 border-black font-fancy text-black text-xl transition-all hover:drop-shadow-lg;
     border-style: solid;
     border-width: 4px 4px 4px 4px;
     border-image: url(/border.svg) 5 5 5 5 stretch stretch;
 }
 
-.btn-xs{
+.btn-xs {
     @apply inline-block px-1 border-black font-fancy text-black text-xl transition-all hover:drop-shadow-lg;
     border-style: solid;
     border-width: 2px 2px 2px 2px;
@@ -45,6 +66,6 @@ textarea{
 }
 
 
-.header{
+.header {
     @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-fancy text-center;
 }

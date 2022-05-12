@@ -11,7 +11,7 @@ export default function AutoSaveRichText(props) {
 
   async function updateCharacterBio(json, text, props) {
     setSaving('saving')
-    const { error } = await supabase.from(props.from).update({ [props.update[0]]: json, [props.update[1]]: text }).eq(props.eq[0], props.eq[1])
+    const { error } = await supabase.from(props.from).update({ [props.columns[0]]: json, [props.columns[1]]: text }).eq('id', props.id)
     if (error) {
       setSaving('error')
       console.log(error)

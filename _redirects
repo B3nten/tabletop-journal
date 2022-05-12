@@ -11,5 +11,6 @@
 /campaigns/:campaign/items /campaigns/[campaign]/items 200
 /campaigns/:campaign/dreams /campaigns/[campaign]/dreams 200
 /campaigns/:campaign/other /campaigns/[campaign]/other 200
+/campaigns/:campaign/sessions /campaigns/[campaign]/sessions 200
 
 /campaigns/:campaign /campaigns/[campaign] 200

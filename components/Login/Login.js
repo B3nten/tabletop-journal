@@ -21,7 +21,6 @@ export default function Login() {
                     {action === 'signin' ? 'Register' : 'Sign In'}
                 </button>
                 <button
-                    onClick={() => alert('sucks to suck LOL')}
                     className='btn-underline'>
                     forgot password
                 </button>
