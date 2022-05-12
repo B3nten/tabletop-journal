@@ -65,6 +65,10 @@ textarea {
     border-image: url(/border.svg) 3 3 3 3 stretch stretch;
 }
 
+.btn-ghost{
+    @apply inline-block;
+}
+
 
 .header {
     @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-fancy text-center;
