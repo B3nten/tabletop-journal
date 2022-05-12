@@ -14,7 +14,6 @@ export default function SessionsPage() {
     )
 }
 
-
 function DocumentList() {
     const router = useClientRouter()
     const sessions = useSessionList(router.query.campaign)

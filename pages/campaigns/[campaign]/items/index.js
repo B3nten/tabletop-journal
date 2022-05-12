@@ -6,8 +6,6 @@ import { Modal } from '../../../../components/Modal'
 import { DocumentListPage, AddDocument } from '../../../../components/Document'
 import { useClientRouter } from '../../../../lib/hooks'
 
-
-
 export default function ItemsPage() {
 	const router = useClientRouter()
 	const documents = useDocumentList(router.query.campaign, 'item')

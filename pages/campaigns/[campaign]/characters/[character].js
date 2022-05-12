@@ -15,8 +15,8 @@ export default function OtherDocument() {
 
     return (
         <>
-            <Navigation title={document.name || ''}/>
-            <AuthCheck> 
+            <Navigation title={document.name || ''} />
+            <AuthCheck>
                 <Document document={document} />
                 {document.loaded && document.isData && <button className='btn-underline mt-10' onClick={() => setDeleteDocument(true)}>Delete Document</button>}
                 {deleteDocument && document.loaded && <Modal hide={() => setDeleteDocument(false)}><DeleteDocument document={document} /></Modal>}

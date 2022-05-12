@@ -7,6 +7,7 @@ import { Metatags } from "../../../components/Metatags"
 import Link from "next/link"
 
 export default function Campaign() {
+    
     const campaign = useCampaign()
 
     return (<>
@@ -53,7 +54,7 @@ export default function Campaign() {
                         </a>
                     </Link>
 
-                </div>                   
+                </div>
                 <div>
                     <OptionsListItem name='Campaign Settings' campaign={campaign?.campaign_id} link='settings' />
                 </div>

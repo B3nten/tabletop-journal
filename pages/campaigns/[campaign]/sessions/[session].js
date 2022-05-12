@@ -8,7 +8,7 @@ export default function Session() {
   const [data, setData] = useState([])
 
   useEffect(() => {
-    ;(async () => {
+    ; (async () => {
       const { data, error } = await supabase
         .from('document_instances')
         .select('*')
