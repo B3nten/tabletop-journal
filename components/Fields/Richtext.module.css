@@ -5,6 +5,7 @@
     border-radius: 1.5rem;
     padding: 1rem;
     background-color: rgba(251, 190, 36, 0.15);
+    width:100%;
 }
 
 .editor:focus{
