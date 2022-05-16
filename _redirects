@@ -4,6 +4,7 @@
 /campaigns/:campaign/items/:character /campaigns/[campaign]/items/[item].html 200
 /campaigns/:campaign/dreams/:character /campaigns/[campaign]/dreams/[dream].html 200
 /campaigns/:campaign/other/:character /campaigns/[campaign]/other/[other].html 200
+/campaigns/:campaign/sessions/:session /campaigns/[campaign]/sessions/[session].html 200
 
 /campaigns/:campaign/characters /campaigns/[campaign]/characters 200
 /campaigns/:campaign/locations /campaigns/[campaign]/locations 200
