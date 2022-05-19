@@ -21,7 +21,7 @@ export default function Navigation(props) {
                 </button>
                 <div className='flex space-x-2 md:space-x-6'>
                     {props.children}
-                    <button><img className='w-6 h-6 xl:w-7 xl:h-7 opacity-30 pointer-events-none' src='/search.svg' alt='' /></button>
+                    <button><img className='w-6 h-6 xl:w-7 xl:h-7 opacity-20 pointer-events-none' src='/search.svg' alt='' /></button>
                     <Link href='/'>
                         <button><img className='w-6 h-6 xl:w-7 xl:h-7' src='/home.svg' alt='' /></button>
                     </Link>
