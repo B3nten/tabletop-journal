@@ -1,0 +1,48 @@
+.editor{
+    font-family: Kalam;
+    font-size: 1.25rem;
+    /* min-height: 80px; */
+    border-radius: 1.5rem;
+    padding: 1rem;
+    /* background-color: #fbbe2426; */
+    transition: all;
+    transition-duration: 150ms;
+}
+
+.editor:focus{
+    /* background-color: rgba(251, 190, 36, .15); */
+    /* outline: none; */
+    background-color: hsla(43, 96%, 56%, 0.205)
+}
+.editor:hover{
+    background-color: hsla(43, 96%, 56%, 0.205)
+}
+
+h1.heading{
+    font-size: 3rem;
+    line-height: 1;
+    font-family: Spirax;
+}
+
+h2.heading{
+    font-size: 1.75rem;
+    line-height: 1;
+}
+
+.button{
+    background-color: rgb(255, 246, 225);
+    width: 40px;
+    height:40px;
+    border-radius: 100%;
+    font-family: Kalam;
+    font-size: 1.5rem;
+    line-height: 0;
+}
+
+.isActive{
+    outline: black;
+    outline-style: solid;
+    outline-width: 2px;
+}
+
+
