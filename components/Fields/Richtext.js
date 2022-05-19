@@ -104,7 +104,7 @@ export default function AutoSaveRichText(props) {
         </div>
       </BubbleMenu>}
 
-      <div>
+      <div className='w-full'>
         <div className='text-2xl pl-2 font-handwriting mb-1'>{props.title ?? ''}</div>
         <EditorContent editor={editor} />
         <div className="translate-x-2">
