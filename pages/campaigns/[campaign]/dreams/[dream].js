@@ -7,6 +7,7 @@ import { Modal, Title } from '../../../../components/Modal'
 import { AuthCheck } from '../../../../components/AuthGuard'
 import supabase from '../../../../lib/supabase'
 import toast from 'react-hot-toast'
+import { SessionReferences} from '../../../../components/Document'
 
 export default function OtherDocument() {
     const router = useClientRouter()
@@ -18,6 +19,7 @@ export default function OtherDocument() {
             <Navigation title={document.name || ''} />
             <AuthCheck>
                 <Document document={document} />
+                {document.loaded && <SessionReferences document={document}/>}
                 {document.loaded && document.isData && <button className='btn-underline mt-10' onClick={() => setDeleteDocument(true)}>Delete Document</button>}
                 {deleteDocument && document.loaded && <Modal hide={() => setDeleteDocument(false)}><DeleteDocument document={document} /></Modal>}
             </AuthCheck>

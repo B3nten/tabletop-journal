@@ -9,9 +9,9 @@ import supabase from '../../../../lib/supabase'
 import toast from 'react-hot-toast'
 import { SessionReferences } from '../../../../components/Document'
 
-export default function OtherDocument() {
+export default function EventDocument() {
     const router = useClientRouter()
-    const document = useDocument(router.query.item)
+    const document = useDocument(router.query.event)
     const [deleteDocument, setDeleteDocument] = useState()
 
     return (
